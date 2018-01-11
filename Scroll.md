@@ -55,8 +55,10 @@ In EPUB FXL, the default "fit" is `both`. We'll stick with it.
 
 	{
 		"href": "page1.jpg",
-		"type": "image/jpeg"
-		"fit": "custom#xywh=percent:0,0,20,100"
+		"type": "image/jpeg",
+		"properties": {
+			"fit": "custom#xywh=percent:0,0,20,100"
+		}
 	}
 
 ![](Scroll_fit_custom.png)
@@ -78,9 +80,11 @@ study: study the CSS snap points.
 
 	{
 		"href": "page1.jpg#xywh=percent:5,5,15,15",
-		"type": "image/jpeg"
-		"fit": "custom#xywh=percent:0,0,20,100",
-		"snap-x": {"align": "left", "positions": [0]}
+		"type": "image/jpeg",
+		"properties": {
+			"fit": "custom#xywh=percent:0,0,20,100",
+			"snap-x": {"align": "left", "positions": [0]}
+		}
 	}
 
 ![](Scroll_snap_left.png)
