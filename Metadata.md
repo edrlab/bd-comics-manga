@@ -78,8 +78,8 @@ Sample:
     "published": "2018-03-22T11:18:54+00:00",
     "title": "Chapitre 3 - Le retournement de situation",
     "position": 3
-  }
-  "spine": [{... page ...},{... page ...}]
+  },
+  "spine": [{},{}]
 }
 ```
 
