@@ -23,55 +23,76 @@ json sample:
 		"type": "image/jpeg"
 	}
 
-issue = panels can be of very different size and the definition of an image, once zoomed full screen, can therefore be of low quality.
+issue: panels can be of very different sizes and the definition of an image, once zoomed full screen, can therefore be of low quality.
 
 ## Scaling
 
-Let's consider a portrait viewport, a landscape viewport and two images or fragments: a square one and a wide one (5:1 aspect ratio).
+Let's consider a portrait viewport, a landscape viewport and two images or fragments: an image with a 1:1 aspect ratio and a wide image (5:1 aspect ratio).
 
-![](Scroll_elements.png)
+![](scroll/portrait.png) ![](scroll/landscape.png) ![](scroll/square.png) ![](scroll/wide.png)
+*Source: [https://publicdomainvectors.com](https://publicdomainvectors.com)*
 
-A `fit` may be applied to the image so that it is scaled (up or down) to the viewport size. The aspect ratio must be preserved. Possible options are `height`, `width`, `both`, `optimize` and `custom`.
+A `fit` may be applied to the image so that it is scaled (up or down) to the viewport size. The aspect ratio must be preserved. Possible options are `height`, `width`, `both`, `optimize` and `ratio`.
 
 ### height
 
-![](Scroll_fit_height.png)
-![](Scroll_fit_height_wide.png)
+![](scroll/portrait_square_fill_left.png) ![](scroll/landscape_square_fit.png) ![](scroll/portrait_wide_fill_left.png) ![](scroll/landscape_wide_fill_left.png)
 
 ### width
 
-![](Scroll_fit_width.png)
+![](scroll/portrait_square_fit.png) ![](scroll/landscape_square_fill.png) ![](scroll/portrait_wide_fit.png) ![](scroll/landscape_wide_fit.png)
 
 ### both
 
 This corresponds to the notion of "aspect fit". In EPUB FXL, the default "fit" is `both`. We'll stick with it.  
 
-![](Scroll_fit_both.png)
+![](scroll/portrait_square_fit.png) ![](scroll/landscape_square_fit.png) ![](scroll/portrait_wide_fit.png) ![](scroll/landscape_wide_fit.png)
 
 ### optimize
 
 This corresponds to the notion of "aspect fill". `optimize` (`fill`? `crop`?) means that the fit is done on one dimension, which depends on both the viewport and image aspect ratios, in order to optimize the display of the image.
 
-![](Scroll_fit_optimize.png)
-![](Scroll_fit_height_wide.png)
+![](scroll/portrait_square_fill_left.png) ![](scroll/landscape_square_fill.png) ![](scroll/portrait_wide_fill_left.png) ![](scroll/landscape_wide_fill_left.png)
 
-### custom
+### ratio
 
-`custom` allows to define the minimum amount of image data that must be displayed, regardless of the relative aspect ratios of the image/fragment and the viewport. This option can be useful when the image is  very tall (resp. wide) with a landscape (resp. portrait) viewport.
+`ratio` allows to define the minimum amount of image data that must be displayed, regardless of the relative aspect ratios of the image/fragment and the viewport. This option can be useful when the image is  very tall (resp. wide) with a landscape (resp. portrait) viewport.
 
-The `custom` attribute is defined as a percentage of the largest dimension of the image.
+Given an aspect ratio, the largest rectangle that fits inside the viewport is used to scale the image in "fill" mode.
 
-*Question: should we define it as an aspect ratio instead?*
+- Example: 1:1 aspect ratio
 
-![](Scroll_fit_custom.png)
-
-Sample: 
+![](scroll/portrait_wide_ratio1_left.png) ![](scroll/landscape_wide_fill_left.png)
 
 	{
 		"href": "page1.jpg",
 		"type": "image/jpeg",
 		"properties": {
-			"fit": "custom#percent:20"
+			"fit": "ratio#1:1"
+		}
+	}
+
+- Example: 4:3 aspect ratio
+
+![](scroll/portrait_wide_ratio43_left.png) ![](scroll/landscape_wide_fill_left.png)
+
+	{
+		"href": "page1.jpg",
+		"type": "image/jpeg",
+		"properties": {
+			"fit": "ratio#4:3"
+		}
+	}
+
+- Example: 2:1 aspect ratio
+
+![](scroll/portrait_wide_ratio21_left.png) ![](scroll/landscape_wide_ratio21_left.png)
+
+	{
+		"href": "page1.jpg",
+		"type": "image/jpeg",
+		"properties": {
+			"fit": "ratio#2:1"
 		}
 	}
 
@@ -85,8 +106,22 @@ The values given to these options are used as percentages relative to both the v
 - The default value for position-y is 50 (image centered vertically).
 - The default value for position-x depends on the reading direction: 0 for left to right, 100 for right to left.
 
+***Question: should the horizontal default always apply? When the image is narrower than the viewport, we may prefer it centered by default instead of moved to the left or to the right.***
 
-## Snap points
+- Example: center horizontally
+
+![](scroll/portrait_square_fill_center.png) ![](scroll/landscape_square_fill.png) ![](scroll/portrait_wide_fill_center.png) ![](scroll/landscape_wide_fill_center.png)
+
+	{
+		"href": "page1.jpg",
+		"type": "image/jpeg",
+		"properties": {
+			"fit": "fill",
+			"position-x": 50
+		}
+	}
+
+## Snap points *à sortir --> parallaxe*
 
 They may be placed on each image, or placed on fragments of wide/long images. 
 
@@ -109,8 +144,6 @@ study: study the CSS snap points.
 			"snap-x": {"align": "left", "positions": [0]}
 		}
 	}
-
-![](Scroll_snap_left.png)
 
 ## Fragment-based Navigation
 
