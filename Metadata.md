@@ -7,7 +7,7 @@
 - date of publication
 - date of last modification
 - creators (authors)) with their role (localizable)
-- progression direction (ltr/rtl -> a mange is rtl)
+- progression direction (ltr/rtl -> a manga is rtl)
 - privacy policy
 
 ### Remarks
@@ -35,9 +35,9 @@ In short, we find here:
 - description
 - source
 - belong_to
- - series
- - collection
- - position
+  - series
+  - collection
+- position
 - progression direction
 
 Details are found in the RWPM specification, which seems ready for classic visual narratives.
@@ -56,9 +56,17 @@ Details are found in the RWPM specification, which seems ready for classic visua
 * allow the user to be notified of the publication of a new chapter.
 * express metadata related to multiple renditions of a publication (e.g. color + B&amp;W)
 
-## Sections in a publication
+## Sections
 
-Question: will we make "sections" (array) an alternative to "spine" in the RWPM? i.e. does a publication contains "spine items" XOR "sections"? The WG seems to think it is the case. Hadrien seems not to care. 
+Question: will we make "sections" (array) an alternative to "spine" in the RWPM? i.e. does a publication contain "spine items" XOR "sections"? The WG seems to think it is the case.  
+
+Solution 1: spine and sections are exclusive.
+Cons: the object created out of the json structure is "polymorph". 
+
+Solution2: spine and sections are both accepted in the same publication.
+Pro: the object creation is simple. 
+Cons: The reading order must be defined.
+Proposal: the spine items are read before the sections. Therefore, a preface can be expressed as a spine item, before the chapter pages. But it means that pages like postface, at the end of the publication, must be embedded in one or several sections.   
 
 ## Metadata related to each section of a publication
 
@@ -71,19 +79,35 @@ Note 2: a section also supports a spine.
 Sample:
 
 ```json
-"section": {
-  "metadata": {
-    "@type": "http://bib.schema.org/Chapter",
-    "identifier": "...",
-    "published": "2018-03-22T11:18:54+00:00",
-    "title": "Chapitre 3 - Le retournement de situation",
-    "position": 3
-  },
-  "spine": [{},{}]
-}
+"sections": [
+  {
+    "metadata": {
+      "@type": "http://bib.schema.org/Chapter",
+      "identifier": "section3",
+      "published": "2018-03-22T11:18:54+00:00",
+      "title": "Chapitre 3 - Le retournement de situation",
+      "position": 3
+    },
+    "spine": [{},{}]
+  }
+]
 ```
 
+## Identifiers
 
+A publication MUST have one identifier, as a URI. When applicable, it is an ISBN (e.g. urn:isbn:978031600000X). Alternatively, any scheme that enables the creation of globally unique identifiers (doi, ark etc.) is allowed as identifier. 
+
+A section MAY also have an identifier, which is unique inside the visual narrative, and takes the form of a fragment identifier. A globally unique identifier for the section can be obtained by concatenation of the visual narrative URI and the section identifier, with a '#' separator.  
+
+## Versioning
+
+A visual narrative may be versioned. THe EPUB 3.1 sepcification defines the notion Release identifier for this purpose, which relies of the Unique Identifier and modification date. 
+
+See http://www.idpf.org/epub/31/spec/epub-packages.html#sec-metadata-elem-identifiers-pid
+
+
+## Date format
+Date are formatted as W3C Date time (e.g. 2018-04-05T10:00:00+02:00).
 
 
 

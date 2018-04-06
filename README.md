@@ -22,12 +22,14 @@ More details about the technical decisions taken during the course of the projec
 
 A BD, comics or manga contains a sequence of pages, often grouped in chapters. A traditional page contains a panel group, and panels contain speech balloons and captions. The boundaries between panels/balloons/captions can be ambiguous and they may overlap (e.g. a character in a panel with its arm in the adjacent panel; or a balloon going out of its source panel). Publications can be grouped in series and may belong to ebook collections.
 
-We'll use therefore the following terms:
+We'll use therefore the following terms for publications:
 
 * *visual narrative* (narration visuelle) (nom ombrelle) : the kind of publication we a studying; covers BD, comics,  graphic novels, mangas etc. A publication has a set of metadata and a reading order.
+* *section*: a set of pages, which constitutes a reading unit. A chapter is a type of section. A section may have its own set of metadata, including a thumbnail (useful to ease the navigation in a strip).
 * *page*: a "step" in the reading experience. Chosen because it relates to the notion of print "page" or Web "page". 
 * *region*: a (usually square) region of interest that can be defined in a page around a *panel* (case), *balloon* (bulle), *caption* (légende) or any combination thereof.
-* *section*: a set of pages, which constitutes a reading unit. A chapter is a type of section. A section may have its own set of metadata, including a thumbnail (useful to ease the navigation in a strip).
+
+Plus these terms for sets of publications:
 * *series*: a set of publications belonging to the same narrative arc (usually ordered).
 * *collection*: a set of publications grouped by its publisher (usually unordered)
 
@@ -65,3 +67,5 @@ The work is split in different sections :
 * [Web Animations (W3C)](https://www.w3.org/TR/web-animations-1/)
 
 * [CBML](http://dcl.slis.indiana.edu/cbml/), the Comic Book Markup Language, and XML dialect based on TEI. Essentially add &lt;cbml:panel>, &lt;cbml:balloon> and &lt;cbml:caption>.
+
+* [Schema.org VisualArtwork](http://schema.org/VisualArtwork), A work of art that is primarily visual in character.
