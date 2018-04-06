@@ -33,7 +33,7 @@
       "spine": [
         {"href": "c003.html", "type": "text/html", "title": "Page 3"}, 
         {"href": "c004.html", "type": "text/html", "title": "Page 4"}
-      ],
+      ]
     },
     {
       "metadata": {
@@ -46,7 +46,7 @@
       "spine": [
         {"href": "c005.html", "type": "text/html", "title": "Page 5"}, 
         {"href": "c006.html", "type": "text/html", "title": "Page 6"}
-      ],
+      ]
     }
   ],
 
@@ -54,7 +54,7 @@
     {
       "metadata": {
         "language": "ja",
-        "identifier": "rendition1",
+        "identifier": "rendition1"
       },
       "spine":  [
         {"href": "c007ja.html", "type": "text/html", "title": "Page 7 ja"}, 
@@ -65,12 +65,12 @@
     {
       "metadata": {
         "language": "fr",
-        "identifier": "rendition1",
+        "identifier": "rendition1"
       },
       "spine":  [
         {"href": "c007fr.html", "type": "text/html", "title": "Page 7 fr"}, 
         {"href": "c008fr.html", "type": "text/html", "title": "Page 8 fr"}
-      ],
+      ]
     }
   ],
 
