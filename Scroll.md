@@ -121,30 +121,6 @@ The values given to these options are used as percentages relative to both the v
 		}
 	}
 
-## Snap points *à sortir --> parallaxe*
-
-They may be placed on each image, or placed on fragments of wide/long images. 
-
-They will be used to:
-
-- define a starting point (first snap point)
-- define positions for previous/next events
-- stop inertial scrolling on touch screens
-- trigger actions (inline? through reference?)
-	- manage sounds
-	- manage layers (backgrounds)
-
-study: study the CSS snap points.
-
-	{
-		"href": "page1.jpg#xywh=percent:5,5,15,15",
-		"type": "image/jpeg",
-		"properties": {
-			"fit": "custom#xywh=percent:0,0,20,100",
-			"snap-x": {"align": "left", "positions": [0]}
-		}
-	}
-
 ## Fragment-based Navigation
 
 An ordered collection of fragments allows guided navigation between fragments.
@@ -170,3 +146,27 @@ The transitions defined between pages are also applicable between fragments.
 
 see [webtoons brothers-bond ep-2](http://www.webtoons.com/en/action/brothers-bond/ep-2/viewer?title_no=1191&episode_no=3)
 
+
+## Snap points
+
+They may be placed on each image, or placed on fragments of wide/long images. 
+
+They will be used to:
+
+- define a starting point (first snap point)
+- define positions for previous/next events
+- stop inertial scrolling on touch screens
+- trigger actions (inline? through reference?)
+	- manage sounds
+	- manage layers (backgrounds)
+
+study: study the CSS snap points.
+
+	{
+		"href": "page1.jpg#xywh=percent:5,5,15,15",
+		"type": "image/jpeg",
+		"properties": {
+			"fit": "custom#xywh=percent:0,0,20,100",
+			"snap-x": {"align": "left", "positions": [0]}
+		}
+	}
