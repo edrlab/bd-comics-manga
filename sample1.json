@@ -31,8 +31,31 @@
         "position": 1
       },
       "spine": [
-        {"href": "c003.html", "type": "text/html", "title": "Page 3"}, 
-        {"href": "c004.html", "type": "text/html", "title": "Page 4"}
+        { "title": "Chap 1 Page 1", "type": "text/html", "href": "c1p1.html"}, 
+        {"title": "Chap 1 Page 2",
+         "parallax": {
+           "layers": [
+            {"speed": 0,
+              "path": "M150",
+              "resources": [
+               { "type": "image/png", "href": "img1.png"}
+              ]
+             }
+             {"speed": 0.5,
+               "path": "L75",
+               "resources": [
+                { "type": "image/png", "href": "img2.png"}
+               ]
+              }
+              {"speed": 1,
+                "path": "M150 0 L75 200 L225 200 Z",
+                "resources": [
+                 { "type": "image/png", "href": "img3.png"}
+                ]
+               }
+            ]
+         }
+        }
       ]
     },
     {
