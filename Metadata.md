@@ -12,7 +12,7 @@
 
 ### Remarks
 
-EPUB 3 (and the current trend for Web Publications) stands that additional metadata will be described in e.g. ONIX. THe issue is that Reading Systems don't process ONIX (or MARC or any specific) metadata.
+EPUB 3 (and the current trend for Web Publications) stands that additional metadata will be described in e.g. ONIX. The issue is that Reading Systems don't process ONIX (or MARC or any specific) metadata.
 
 ## Defined in the Readium Web Pub Manifest (RWPM)
 
