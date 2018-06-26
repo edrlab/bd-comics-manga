@@ -16,7 +16,8 @@ All resources that are referenced using a relative URI must be referenced relati
 
 ## In-book Update
 
-Identification: same manifest identifier, new timestamp for additional contents.
+Each update contains a main manifest (same manifest identifier) with additional sections.
+New contents are identified by their timestamp in the section metadata.
 
 ### Archive
 
@@ -28,7 +29,7 @@ The reader application should merge the update with initial document:
 
 ### Streaming
 
-New manifest
+The server provides a new manifest.
 
 ## Manifest
 
@@ -40,12 +41,12 @@ Each manifest contains the following elements at its root:
 
 Name       | Type        | Description | Required
 -----------|-------------|-------------|---------
-metadata   | **publication metadata** |             | Yes
-links      | [**link**]      | an unordered list of relationships, as defined in [Readium Web Publication Manifest](https://github.com/readium/webpub-manifest). At least a `self` relationship is required. | Yes
+metadata   | **metadata** | publication metadata | Yes
+links      | [**link**]      | an unordered list of relationships, as defined in [Readium Web Publication Manifest](https://github.com/readium/webpub-manifest). At least a `self` relationship is required. | Yes (main manifest)
 spine      | [**page**]      | an ordered list of pages | No (\*)
 guided     | [**fragment**]  | an ordered list of fragments, forming an alternate spine | No
 sections   | [**section**]   | an ordered list of sections/chapters, typically used for chapter-based distribution | No (\*)
-renditions | [**rendition**] | an unordered list of alternative renditions, identified by a `language` property in their metadata | No (\*)
+renditions | [**rendition**] | an unordered list of alternative renditions, identified by a `hreflang` property in their metadata | No (\*)
 resources  | [**link**]      | an unordered list of files needed for rendition and not referenced in the `spine`, `sections` and `renditions` parts of the manifest | No
 
 (\*) At least one of `spine`, `sections` and `renditions` is required.
@@ -62,21 +63,21 @@ changelog  | string      | Plain text change log | No
 
 Name       | Type        | Description           | Required
 -----------|-------------|-----------------------|---------
-rel
-type
-href
-hreflang
-templated
-properties
+rel        | string      | relationship to linked resource | No (except in "links" list)
+type       | MIME type   | resource type         | Yes
+href       | URI         | pointer to the resource, either as a file path inside the archive (relative to manifest), or as an absolute URL | Yes
+hreflang   | string      | language of the resource (typical use: to specify an alternate manifest for a rendition in another language) | No
+templated  | boolean     | true if `href` is a template | No (default = false)
+properties | object      | properties attached to the resource; keys depend on the resource type and relationship | No
 
 ### rendition
 
 Name       | Type        | Description | Required
 -----------|-------------|-------------|---------
-metadata   | metadata    |             | Yes
+metadata   | metadata    | rendition metadata | Yes
 spine      | [**page**]      | an ordered list of pages | No (\*)
 guided     | [**fragment**]  | an ordered list of fragments, forming an alternate spine | No
-sections   | [**section**]   |             | No (\*)
+sections   | [**section**]   | an ordered list of sections/chapters | No (\*)
 
 (\*) At least one of `spine` and `sections` is required.
 
@@ -84,8 +85,8 @@ sections   | [**section**]   |             | No (\*)
 
 Name       | Type        | Description | Required
 -----------|-------------|-------------|---------
-metadata   | metadata    |             | Yes
-spine      | [**page**]      | an ordered list of pages | No (\*)
+metadata   | metadata    | section metadata | Yes
+spine      | [**page**]      | an ordered list of pages | Yes
 guided     | [**fragment**]  | an ordered list of fragments, forming an alternate spine | No
 
 ### page/fragment
@@ -94,11 +95,11 @@ A page description can be either included in the manifest, or defined in another
 
 Name       | Type        | Description | Required
 -----------|-------------|-------------|---------
-title      | string      | | No
-type       | MIME type   | | Yes
+title      | string      | page title | No
+type       | MIME type   | content type | Yes
 href       | URI         | A fragment is defined by appending `#xywh=percent:x,x,x,x` to a page URI | Yes
-properties | properties  | | No
-parallax   | parallax    | | No
+properties | **properties** | page properties, as defined below | No
+parallax   | **parallax** | parallax description | No
 
 ### page properties
 
@@ -143,7 +144,7 @@ mask       | TBD | transparent areas, TBD | No
 
 ## Spine
 
-A manifest must contain one or several `spine` objects at these locations:
+A manifest must contain one or several `spine` objects. These `spine` objects can be found at these locations:
 
 - at the root level,
 - inside each section,
@@ -157,7 +158,7 @@ The reading engine is expected to display the document according to a dynamic sp
 - the root spine of the active rendition
 - the spine in each section of the active rendition (in section order)
 
-The same logic applies to guided navigation, when `guided` elements are available.
+The same logic applies to guided navigation, if `guided` elements are available.
 
 ## LCP
 
