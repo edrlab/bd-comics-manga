@@ -8,7 +8,7 @@ This work aims at creating a descriptive language representing next-gen BD / Com
 
 See also: [a post on the EDRLab website](https://www.edrlab.org/2017/07/07/bd-comics-manga-working-group-starting/) for the start of the WG.
 
-Note: the [introduction to CBML](http://www.digitalhumanities.org/dhq/vol/6/1/000117/000117.html) referenced below shows shared motivations, although we are targeting new reading experiences, where CBML mostly targets analysis and study of existing works. The end result of our work is an authoring format, directly usable as an interchange format between ebook publishers and reading systems. 
+Note: the [introduction to CBML](http://www.digitalhumanities.org/dhq/vol/6/1/000117/000117.html) shows shared motivations, although we are targeting new reading experiences, where CBML mostly targets analysis and study of existing works. The end result of our work is an authoring format, directly usable as an interchange format between ebook publishers and reading systems. 
 
 ## Initial choices
 
@@ -16,7 +16,7 @@ EDRLab advocates the use of a JSON manifest in Web Publications / EPUB 4; the di
 
 More precisely, EDRLab adocates the use of JSON-LD, a JSON representation of linked data, compatible with RDF. The WG will work on a JSON-LD expression of the language in a future step.
 
-More details about the technical decisions taken during the course of the project are found in the section named [Technical decisions](./Technical decisions.md).
+More details about the technical decisions taken during the course of the project are found in the section named [Technical decisions](./Technical_decisions.md).
 
 ## Vocabulary, conceptual model
 
@@ -54,9 +54,9 @@ The work is split in different sections :
 * [Scroll](./Scroll.md)
 * [Transitions](./Transitions.md) between pages
 * [Transformations](./Transformations.md)
-* [In-book update](./In-book update.md)
-* [Parallax effects](./Parallax effects.md)
-* [Multiple renditions](./Multiple renditions.md)
+* [In-book update](./In-book_update.md)
+* [Parallax effects](./Parallax_effects.md)
+* [Multiple renditions](./Multiple_renditions.md)
 
 ## References
 
