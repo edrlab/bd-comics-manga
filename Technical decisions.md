@@ -6,6 +6,7 @@ Effects like transitions may be defined as Javascript code, like Jake Archibald'
 In such case, we would need to define effects, their parameters, and their Javascript implementation (JS being the lingua franca of Web application).
 
 But several important facts stop us tu use this path:
+
 1. This WG would need to be prescriptive on the best implementation of the different effects in Javascript. We are certainly not the best JS developers in the world.   
 2. To embed javascript in an ebook is doomed for any preservation purpose. Javascript is evolving too quickly to expect that code written today will be readable with Web based toolkits in 30 years from now.
 3. This would mean that authoring tools would have to generate this code automatically, from the effects described by ebooks authors in a user-friendly interface. The necessary evolutions of the code would then need to be applied to each authoring system at about the same time, which is almost impossible. 

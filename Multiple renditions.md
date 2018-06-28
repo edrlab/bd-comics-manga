@@ -20,7 +20,7 @@ An example is the translation of a visual narrative in different languages, sold
   "href": "asterix10-ja.json",
   "type": "application/webpub+json",
   "hreflang": "ja",
-  "properties": ["price": {"value": 12.99, "currency": "EUR"}]
+  "properties": {"price": {"value": 12.99, "currency": "EUR"}}
 }
 ```
 

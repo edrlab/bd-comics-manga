@@ -40,21 +40,21 @@
               "resources": [
                { "type": "image/png", "href": "img1.png"}
               ]
-             }
+             },
              {"speed": 0.5,
                "path": "L75",
                "resources": [
-                { "type": "image/png", "href": "img2.png"}
+                {"type": "image/png", "href": "img2.png"}
                ]
-              }
+              },
               {"speed": 1,
                 "path": "M150 0 L75 200 L225 200 Z",
                 "resources": [
                  { "type": "image/png", "href": "img3.png"}
                 ]
-               }
+              }
             ]
-         }
+          }
         }
       ]
     },
