@@ -16,11 +16,24 @@
     {"rel": "search", "href": "http://example.org/search{?query}", "type": "text/html", "templated": true}
   ],
 
-  "spine": [
-    {"href": "c001.html", "type": "text/html", "title": "Page 1"}, 
-    {"href": "c002.html", "type": "text/html", "title": "Page 2"}
+  "readingOrder": [
+    {"href": "p001.png", "type": "image/png", "title": "Page 1"}, 
+    {"href": "p002.png", "type": "image/png", "title": "Page 2"}
   ],
 
+  "readingOrder":[
+    {"href": "p001.png", "type": "image/png", "title": "Page 1",
+      "transition":{"type":"crossfade"}
+     }, 
+     {"href": "p002.png", "type": "image/png", "title": "Page 2",
+      "transition-forward":{"type":"split", "from":"center"},
+      "transition-backward":{"type":"wipe", "from":"left"}
+     },
+     {"href": "p003.png", "type": "image/png", "title": "Page 3",
+       "transition":{"type":"crossfade", "duration":"slow", "unique":"true"}
+     }
+  ],
+  
   "sections": [
     {
       "metadata": {
@@ -30,7 +43,7 @@
         "title": "Chapitre 1 - Retournement de situation",
         "position": 1
       },
-      "spine": [
+      "readingOrder": [
         { "title": "Chap 1 Page 1", "type": "text/html", "href": "c1p1.html"}, 
         {"title": "Chap 1 Page 2",
          "parallax": {
@@ -66,11 +79,12 @@
         "title": "Chapitre 2 - Retournement de situation",
         "position": 2
       },
-      "spine": [
+      "readingOrder": [
         {"href": "c005.html", "type": "text/html", "title": "Page 5"}, 
         {"href": "c006.html", "type": "text/html", "title": "Page 6"}
       ]
     }
+
   ],
 
   "renditions": [
