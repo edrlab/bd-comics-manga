@@ -25,9 +25,9 @@ A BD, comics or manga contains a sequence of pages, often grouped in chapters. A
 We'll use therefore the following terms for publications:
 
 * *visual narrative* (narration visuelle) (nom ombrelle) : the kind of publication we a studying; covers BD, comics,  graphic novels, mangas etc. A publication has a set of metadata and a reading order.
-* *section*: a set of pages, which constitutes a reading unit. A chapter is a type of section. A section may have its own set of metadata, including a thumbnail (useful to ease the navigation in a strip).
 * *page*: a "step" in the reading experience. Chosen because it relates to the notion of print "page" or Web "page". 
 * *region*: a (usually rectangular) region of interest that can be defined in a page around a *panel* (case), *balloon* (bulle), *caption* (légende) or any combination thereof.
+* *section*: a set of pages, which constitutes a reading unit. A chapter is a type of section. A section may have its own set of metadata, including a thumbnail (useful to ease the navigation in a strip).
 
 Plus these terms for sets of publications:
 
