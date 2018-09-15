@@ -1,4 +1,4 @@
-# Scroll Panel navigation
+# Panel navigation
 
 ## Fragmenting the page
 
