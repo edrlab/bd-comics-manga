@@ -1,6 +1,6 @@
-# Panel navigation
+# Scroll and Panel navigation
 
-Historically, scroll can be vertical or horizontal. In Korea and France, most scrolls are vertical, but there are horizontal use cases also.
+Scroll can be vertical or horizontal. Web oriented scroll is vertical (see webtoons) but many sequential works present an horizontal scroll (see turbomedia).
 
 In some use cases, 
 
