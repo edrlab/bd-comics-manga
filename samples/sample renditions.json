@@ -1,0 +1,35 @@
+
+{
+  "@context": "http://readium.org/webpub/default.jsonld",
+  
+  "metadata": {
+    "@type": "http://schema.org/Book",
+    "title": "sample"
+  },
+
+  "renditions": [
+    {
+      "metadata": {
+        "language": "ja",
+        "identifier": "rendition-1"
+      },
+      "readingOrder":  [
+        {"href": "p001-ja.png", "type": "image/png", "title": "Page 1 ja"}, 
+        {"href": "p002-ja.png", "type": "image/png", "title": "Page 2 ja"}
+      ],
+      "sections": []
+    },
+    {
+      "metadata": {
+        "language": "fr",
+        "identifier": "rendition-2"
+      },
+      "readingOrder":  [
+        {"href": "p001-fr.png", "type": "image/png", "title": "Page 1 fr"}, 
+        {"href": "p002-fr.png", "type": "image/png", "title": "Page 2 fr"}
+      ]
+    }
+  ],
+}
+
+

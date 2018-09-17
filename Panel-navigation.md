@@ -35,7 +35,7 @@ In guided navigation mode, background color information may be ignored.
 
 ## Transitions between fragments
 
-The transitions defined between pages are also applicable between fragments.
+Transitions defined between pages are also applicable between fragments.
 
 
 ## Should guided navigation and scroll be compatible in the same UX? 

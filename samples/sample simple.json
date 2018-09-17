@@ -1,0 +1,25 @@
+{
+  "@context": "http://readium.org/webpub/default.jsonld",
+  "metadata": {
+    "@type": "http://schema.org/Book",
+    "title": "sample"
+  },
+
+  "links": [
+    {"rel": "self", "href": "http://example.org/manifest.json", "type": "application/webpub+json"},
+    {"rel": "alternate", "href": "http://example.org/sample.epub", "type": "application/epub+zip"},
+  ],
+
+  "readingOrder": [
+    {"href": "p001.png", "type": "image/png", "title": "Page 1"}, 
+    {"href": "p002.png", "type": "image/png", "title": "Page 2"}
+  ],
+
+  "resources": [
+    {"rel": "cover", "href": "cover.jpg", "type": "image/jpeg", "height": 600, "width": 400},
+    {"href": "style.css", "type": "text/css"}, 
+    {"href": "whale.jpg", "type": "image/jpeg"}, 
+    {"href": "boat.svg", "type": "image/svg+xml"}, 
+    {"href": "notes.html", "type": "text/html"}
+  ]
+}

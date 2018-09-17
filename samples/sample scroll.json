@@ -1,0 +1,20 @@
+
+{
+  "@context": "http://readium.org/webpub/default.jsonld",
+  "metadata": {
+    "@type": "http://schema.org/Book",
+    "title": "sample"
+  },
+
+  "readingOrder":[
+    {"href": "p001.png", "type": "image/png", "title": "Page 1",
+      "properties":{
+        "fit":"ratio#2:1",
+        "position-x":"10",
+        "snap-x": {"positions": [0, 25, 70]}
+      }
+     }, 
+     {"href": "p002.png", "type": "image/png", "title": "Page 2"}
+  ]
+}
+

@@ -1,0 +1,35 @@
+
+{
+  "@context": "http://readium.org/webpub/default.jsonld",
+  
+  "metadata": {
+    "@type": "http://schema.org/Book",
+    "title": "sample"
+  },
+
+  "sections": [
+    {
+      "metadata": {
+        "@type": "http://bib.schema.org/Chapter",
+        "identifier": "Chapter-1",
+        "published": "2018-03-22T11:18:54+00:00",
+        "title": "Chapitre 1 - Let's start",
+      },
+      "readingOrder": [
+        {"href": "p001.png", "type": "image/png", "title": "Page 1"}, 
+        {"href": "p002.png", "type": "image/png", "title": "Page 2"}
+        ]
+    },
+    {
+      "metadata": {
+        "@type": "http://bib.schema.org/Chapter",
+        "identifier": "Chapter-2",
+        "published": "2019-01-01",
+        "title": "Chapitre 2 - Let's continue",
+        "description": "This chapter will be published in 2019"
+      }
+    }
+  ]
+}
+
+

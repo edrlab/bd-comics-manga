@@ -31,9 +31,9 @@ This corresponds to the notion of "aspect fit". In EPUB FXL, the default "fit" i
 
 ![](scroll/portrait_square_fit.png) ![](scroll/landscape_square_fit.png) ![](scroll/portrait_wide_fit.png) ![](scroll/landscape_wide_fit.png)
 
-### optimize
+### fill
 
-This corresponds to the notion of "aspect fill". `optimize` (`fill`? `crop`?) means that the fit is done on one dimension, which depends on both the viewport and image aspect ratios, in order to optimize the display of the image.
+This corresponds to the notion of "aspect fill". `fill` (`optimize`? `crop`?) means that the fit is done on one dimension, which depends on both the viewport and image aspect ratios, in order to optimize the display of the image.
 
 ![](scroll/portrait_square_fill_left.png) ![](scroll/landscape_square_fill.png) ![](scroll/portrait_wide_fill_left.png) ![](scroll/landscape_wide_fill_left.png)
 
@@ -86,8 +86,10 @@ The scaled image may be positioned relative to the viewport by using `position-x
 
 The values given to these options are used as percentages relative to both the viewport and the image/fragment, so that the top left corner of the image/fragment is superposed to the top left corner of the viewport with (0, 0), and the bottom right corner of the image is superposed to the bottom right corner of the viewport with (100, 100). (50, 50) centers the image within the viewport.
 
-- The default value for position-y is 50 (image centered vertically).
-- The default value for position-x depends on the reading direction: 0 for left to right, 100 for right to left.
+- The default value for position-y is 50 (image centered vertically in the viewport).
+- The default value for position-x is 0. 
+
+If the scroll direction is right to left, position 0 is on the right of the viewport. 
 
 ***Question: should the horizontal default always apply? When the image is narrower than the viewport, we may prefer it centered by default instead of moved to the left or to the right.***
 
@@ -95,14 +97,18 @@ The values given to these options are used as percentages relative to both the v
 
 ![](scroll/portrait_square_fill_center.png) ![](scroll/landscape_square_fill.png) ![](scroll/portrait_wide_fill_center.png) ![](scroll/landscape_wide_fill_center.png)
 
+ex.
+
+```json
 	{
 		"href": "page1.jpg",
 		"type": "image/jpeg",
 		"properties": {
 			"fit": "fill",
-			"position-x": 50
+			"position-x": 20
 		}
 	}
+```
 
 ## Snap points
 
@@ -119,11 +125,15 @@ They will be used to:
 
 study: study the CSS snap points.
 
+ex.
+
+```json
 	{
 		"href": "page1.jpg#xywh=percent:5,5,15,15",
 		"type": "image/jpeg",
 		"properties": {
-			"fit": "custom#xywh=percent:0,0,20,100",
-			"snap-x": {"align": "left", "positions": [0]}
+			"fit": "height",
+			"snap-x": {"positions": [0, 20, 50, 75]}
 		}
 	}
+```

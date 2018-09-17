@@ -1,0 +1,28 @@
+
+{
+  "@context": "http://readium.org/webpub/default.jsonld",
+  "metadata": {
+    "@type": "http://schema.org/Book",
+    "title": "sample"
+  },
+
+  "readingOrder":[
+    {"href": "p001.png", "type": "image/png", "title": "Page 1",
+      "properties":{
+        "transition":{"type":"crossfade"}
+      }
+     }, 
+     {"href": "p002.png", "type": "image/png", "title": "Page 2",
+      "properties":{
+        "transition-forward":{"type":"split", "from":"center"},
+        "transition-backward":{"type":"wipe", "from":"left"}  
+      }
+     },
+     {"href": "p003.png", "type": "image/png", "title": "Page 3",
+      "properties":{
+        "transition":{"type":"crossfade", "duration":"slow", "unique":"true"}
+        }
+     }
+  ]
+}
+
