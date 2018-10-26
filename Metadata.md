@@ -34,7 +34,7 @@ In short, we find here:
 - imprint
 - description
 - source
-- belong_to
+- belongs-to
   - series
   - collection
 - position
