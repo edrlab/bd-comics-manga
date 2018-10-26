@@ -11,7 +11,7 @@
       "properties":{
         "fit":"ratio#2:1",
         "position-x":"10",
-        "snap-x": {"positions": [0, 25, 70]}
+        "scroll-snap-x": {"positions": [0, 25, 70]}
       }
      }, 
      {"href": "p002.png", "type": "image/png", "title": "Page 2"}

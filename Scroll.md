@@ -1,8 +1,8 @@
 # Scroll
 
-Scroll can be vertical or horizontal. Web oriented scroll is vertical (see webtoons) but many sequential works present an horizontal scroll (see turbomedia).
+Scroll can be vertical or horizontal. Classical scroll on the Web is vertical (see webtoons) but many sequential works present an horizontal scroll (see turbomedia).
 
-In some use cases, 
+In some use cases: 
 
 - the author wants to block the screen mode (landscape / portrait). 
 - the starting point is not top-left but at some coordinates
@@ -89,9 +89,11 @@ The values given to these options are used as percentages relative to both the v
 - The default value for position-y is 50 (image centered vertically in the viewport).
 - The default value for position-x is 0. 
 
+***Question: should the position-x be 50 by default? When the image is narrower than the viewport, we may prefer it centered by default rather than moved to the left or to the right of the viewport.***
+
 If the scroll direction is right to left, position 0 is on the right of the viewport. 
 
-***Question: should the horizontal default always apply? When the image is narrower than the viewport, we may prefer it centered by default instead of moved to the left or to the right.***
+
 
 - Example: center horizontally
 
@@ -111,29 +113,43 @@ ex.
 ```
 
 ## Snap points
+Snap points may be defined via a `scoll-snap` property
 
 They may be placed on each image, or placed on fragments of wide/long images. 
 
 They will be used to:
 
-- define a starting point (first snap point)
-- define positions for previous/next events
 - stop inertial scrolling on touch screens
 - trigger actions (inline? through reference?)
 	- manage sounds
-	- manage layers (backgrounds)
-
-study: study the CSS snap points.
+	- manage layers
 
 ex.
 
 ```json
 	{
-		"href": "page1.jpg#xywh=percent:5,5,15,15",
+		"href": "page1.jpg",
 		"type": "image/jpeg",
 		"properties": {
 			"fit": "height",
-			"snap-x": {"positions": [0, 20, 50, 75]}
+			"scroll-snap-x": {"positions": [0, 20, 50, 75]}
 		}
 	}
 ```
+
+***Question: should we define `scroll-snap` instead of `scroll-snap-x`? the scroll can only go in one direction, which depends on the image ratio vs viewport ratio and the fit value. But it would make more difficult the mapping to CSS Scroll Snap. Should we define a `scroll-direction` to solve this issue? ***
+
+# Relation to CSS Scroll Snap
+
+A scroll container may be opted into scroll snapping by using `scroll-snap-type` property. This tells the browser that it should consider snapping this scroll container to the snap positions produced by its descendents. `scroll-snap-type` determines the axis on which scrolling occurs: `x`, `y`, or `both`' and the snapping strictness: `mandatory`, `proximity`.
+
+In our case scroll-snap is transformed to `scroll-snap-type: x mandatory;` (resp `y`) depending the image ratio vs viewport ratio and the fit value
+
+A snap position can be produced by declaring a desired alignment on an element, via `scroll-snap-align`. This position is the scroll offset at which the nearest ancestor scroll container and the element are aligned as specified for the given axis. The following alignments are possible on each axis: `start`, `end`, `center`.
+
+In our case the alignment is always `center`.
+
+Snapport is the area of the scroll container to which the snap areas are aligned. By default it is the same as the visual viewport of the scroll container but it can be adjusted using scroll-padding property.
+
+In our case the snapport is always the visual viewport.
+
