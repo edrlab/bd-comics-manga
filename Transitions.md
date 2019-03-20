@@ -7,7 +7,7 @@ A page may be the scan of a traditional comics page, or a single turbomedia imag
 
 On touch devices, transitions are driven by the movement of the user's finger; the transition speed is driven by the movement speed.
 
-Notel Apart from image-based transitions, the following effects can be implemented as [CSS 3 transitions](https://www.w3.org/TR/css-transitions-1/).
+Note: apart from image-based transitions, the following effects can be implemented as [CSS 3 transitions](https://www.w3.org/TR/css-transitions-1/).
 
 Transitions are set via the `transition` property applied to a page when the user navigates to the next page in reading order. `transition` represents a symmetrical transition: when a user navigates from a page to the previous page in reading order, the transition set on the target page is applied. 
 
